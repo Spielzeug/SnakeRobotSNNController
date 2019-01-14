@@ -5,4 +5,8 @@
 </pydev_pathproperty>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python interpreter</pydev_property>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">python</pydev_property>
+<pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
+<path>/usr/share/vrep/programming/remoteApiBindings/python/python</path>
+<path>/usr/share/vrep/programming/remoteApiBindings/lib/lib/Linux/64Bit</path>
+</pydev_pathproperty>
 </pydev_project>

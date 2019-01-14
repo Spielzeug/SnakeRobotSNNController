@@ -49,6 +49,8 @@ class VrepEnvironment():
         self.rightProxySub = rospy.Subscriber('rightProxyData', Float32MultiArray, self.right_proxy_callback)
         self.midLeftProxySub = rospy.Subscriber('midLeftProxyData', Float32MultiArray, self.midLeft_proxy_callback) 
         self.midRightProxySub = rospy.Subscriber('midRightProxyData', Float32MultiArray, self.midRight_proxy_callback)
+        self.collisionSub = rospy.Subscriber('collision', Bool, self.collision_cb)
+        self.simStoppedSub = rospy.Subscriber('simStopped', Bool, self.simStopped_cb)
 #         self.left25ProxySub = rospy.Subscriber('left25ProxyData', Float32MultiArray, self.left25_proxy_callback)
 #         self.right25ProxySub = rospy.Subscriber('right25ProxyData', Float32MultiArray, self.right25_proxy_callback)
 #         self.left55ProxySub = rospy.Subscriber('left55ProxyData', Float32MultiArray, self.left55_proxy_callback) 
@@ -56,7 +58,6 @@ class VrepEnvironment():
         
         """ROS publishers"""
 
-        self.collisionSub = rospy.Subscriber('collision', Bool, self.collision_cb)
         self.radiusPub = rospy.Publisher('radius', Float32, queue_size=1)
         self.directionPub = rospy.Publisher('direction', Bool, queue_size=None)
         self.reset_pub = rospy.Publisher('resetRobot', Bool, queue_size=None)
@@ -68,6 +69,7 @@ class VrepEnvironment():
         self.radius_buffer = 0
         self.turn_pre = 0.
         self.collisionInSim = False
+        self.simStopped = False
         self.resize_factor = [dvs_resolution[0]//resolution[0], dvs_resolution[1]//resolution[1]]
 
     def dvs_callback(self, msg):
@@ -166,6 +168,9 @@ class VrepEnvironment():
 #             u = 6.4
 #         return
 
+    def simStopped_cb(self, msg):
+        self.simStopped = msg.data
+
     def collision_cb(self, msg):
         self.collisionInSim = msg.data
 
@@ -175,16 +180,18 @@ class VrepEnvironment():
         self.distance = 0.
         self.reset_pub.publish(Bool(True))
         time.sleep(1)
-        return np.zeros((resolution[0],resolution[1]),dtype=int), 0., 0.
+        return np.zeros((resolution[0],resolution[1]),dtype=int), 0., 0., 0., 0.
 
     """
         1. Calculate radius
         2. Publish radius
         3. Calculate reward and state
         4. If collision occured, reset
+        5. If training is over, save data
     """
 
     def step(self, n_l, n_r):
+        
         self.steps += 1
         t = False
 
@@ -203,9 +210,11 @@ class VrepEnvironment():
 
         rc = 0.0
 #         r = self.getAreaBasedReward()
-        r = self.getApproxCenterDistanceReward()
+        r, d_l, d_r = self.getAreaBasedReward()
         s = self.getState()
-        n = self.steps
+        
+        if self.simStopped:
+            return s, r, rc, t, self.steps, self.simStopped, self.distance, d_l, d_r
 #         print("Radius ", self.radius_pre)
 #         print("reward ", r)
         
@@ -213,14 +222,12 @@ class VrepEnvironment():
         if self.collisionInSim:
             self.steps = 0
             t = True
-            if self.distance == 0.0:
-                self.distance = 0.01
             self.reset()
 #             print ("collision: ", rc)
-            return s,r,rc,t,n
+            return s,r,rc,t, self.steps, self.simStopped, self.distance, d_l, d_r
         
         
-        return s,r,rc,t,n
+        return s,r,rc,t, self.steps, self.simStopped, self.distance, d_l, d_r
 
     """
         Approximates center by projecting outter left and right sensor distance on 
@@ -265,7 +272,7 @@ class VrepEnvironment():
         
         r = (((distanceRight + distanceLeft) / 2) - distanceLeft) ** 3
         
-        return r
+        return r, distanceLeft, distanceRight
     
     """Calculates reward based on triangle area between sensed distances
                    Does not operate on center assumption
@@ -295,7 +302,7 @@ class VrepEnvironment():
         
         r = (rightArea - leftArea) ** 3
 
-        return r
+        return r, leftArea, rightArea
     """Unused: clipping to 0 - 1.0 interval for interpolation"""
     
     def clip(self, n):

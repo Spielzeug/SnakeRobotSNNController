@@ -28,7 +28,7 @@ neuronparams = { 'tau_m':20., 'V_th':-50., 'E_L':-60., 't_ref':2., 'V_reset':-60
 #connection parameters
 exc_syn_params = {"model": "stdp_dopamine_synapse",
               "alpha": {"distribution": "uniform", "low": 0., "high": 100.}, 
-              "weight": {"distribution": "uniform", "low": 0., "high": 3000.},
+              "weight": {"distribution": "uniform", "low": 200., "high": 201.},
               "delay" : 1.0}
 
 additive_stdp_syn_params = {"model": "stdp_synapse",
