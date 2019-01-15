@@ -20,13 +20,17 @@ Prerequisites:
 * ROS Melodic Morenia
 * V-REP 3.5.0
 
+# Set Up
+
+Network parameters can be set in parameters.py. Synapses parameters were directly set in networkARMSTDP.py/networkMRMSTDP.py because a volume transmitter was required. Simulation step count is hardcoded in training.py and controller.py and can be changed there. 
+
 # Training
 
 1) Start V-REP and load snakeTraining.ttt scenario
 2) Start simulation
 3) Start training.py
 
-The trained weights will be written to data/rstdp_testing_data.h5, the training performance data will be written to data/rstdp_training_data.hg
+Once the training sequence is completed, V-REP simulation will be stopped and training.py will terminate. The trained weights will be written to data/rstdp_testing_data.h5, the training performance data will be written to data/rstdp_training_data.hg
 
 # Testing
 
