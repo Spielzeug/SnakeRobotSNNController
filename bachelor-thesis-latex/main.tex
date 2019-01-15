@@ -1,0 +1,53 @@
+\RequirePackage[l2tabu,orthodox]{nag}
+
+% TODO: decide if one-sided/two-sided
+%\documentclass[headsepline,footsepline,footinclude=false,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc,BCOR=12mm,DIV=12]{scrbook} % two-sided
+\documentclass[headsepline,footsepline,footinclude=false,oneside,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc]{scrbook} % one-sided
+
+% TODO: change citation style in settings
+\input{settings}
+
+% TODO: change thesis information
+\newcommand*{\getUniversity}{Technische Universität München}
+\newcommand*{\getFaculty}{Department of Informatics}
+\newcommand*{\getTitle}{Comparison of Spiking Neural Network Reinforcement Learning Methods for Autonomous Locomotion of a Snake-Like Robot}
+\newcommand*{\getTitleGer}{Vergleich der Reinforcement-Learning-Methoden in gepulste neuronale Netze für autonome Fortbewegung von Schlangenroboter}
+\newcommand*{\getAuthor}{Dmitry Kochikiyan}
+\newcommand*{\getDoctype}{Bachelor's Thesis in Informatics: Games Engineering}
+\newcommand*{\getSupervisor}{Prof. Dr.-Ing. habil. Alois Knoll}
+\newcommand*{\getAdvisor}{Zhenshan Bing, M.Sc.}
+\newcommand*{\getSubmissionDate}{16.01.2019}
+\newcommand*{\getSubmissionLocation}{Munich}
+
+\begin{document}
+% Set page numbering to avoid "destination with the same identifier has been already used" warning for cover page.
+% (see https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_Links_and_Pages).
+\pagenumbering{alph}
+\input{pages/cover}
+
+\frontmatter{}
+\input{pages/title}
+\input{pages/disclaimer}
+\input{pages/acknowledgments}
+\input{pages/abstract}
+\microtypesetup{protrusion=false}
+\tableofcontents{}
+\microtypesetup{protrusion=true}
+\mainmatter{}
+
+\input{chapters/01_introduction}
+\input{chapters/02_theoretical_background}
+\input{chapters/03_methodology}
+\input{chapters/04_discussion}
+\input{chapters/05_conclussion}
+
+
+\appendix{}
+
+\microtypesetup{protrusion=false}
+\listoffigures{}
+\listoftables{}
+\microtypesetup{protrusion=true}
+\printbibliography{}
+
+\end{document}

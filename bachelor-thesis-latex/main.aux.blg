@@ -1,0 +1,5 @@
+[1] Config.pm:304> INFO - This is Biber 2.12
+[1] Config.pm:307> INFO - Logfile is 'main.aux.blg'
+[36] biber:315> INFO - === Tue Jan 15, 2019, 01:59:09
+[101] Utils.pm:209> ERROR - Cannot find control file 'main.aux.bcf'! - Did latex run successfully on your .tex file before you ran biber?
+[101] Biber.pm:114> INFO - ERRORS: 1

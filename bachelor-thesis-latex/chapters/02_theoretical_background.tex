@@ -1,0 +1,123 @@
+% !TeX root = ../main.tex
+% Add the above to each chapter to make compiling the PDF easier in some editors.
+
+\chapter{Theoretical Background}\label{chapter:theoretical_background}
+There are many different methods of problem solving, ANNs stand out by relying on mathematical models mimicking to a different degree of accuracy biological neural circuits, instead of precise algorithmic approaches. Although now ANNs are widely used in practical applications, their development began as a theoretical research to better our understanding of neurological structures and learning mechanisms. Despite all the efforts, insight in functioning of a brain is still far from complete, yet even the progress made has greatly expanded the realm of possible in informational technologies. Today ANNs enable solving complicated tasks, e.g. image recognition and categorisation, and in near future solving even more complex problems, such as control of complicated robotic systems, will become possible.
+
+\section{Biological Background}
+Modern understanding of nervous system stems from work of Spanish neuroscientist and pathologist Santiago Ramón y Cajal. In 1888 he published his discovery that nervous system consists of discrete neuron cells \cite{29}. And even though more than 100 years have passed there is still huge space for research in this field — just recently, in August 2018, a new neuron type, Rosehip Neuron, was discovered \cite{30}.
+For all the diversity of neuron types and their structural complexity, in essence they all are simple information processing units. They receive information as electrical pulses, process it and output pulses of their own. By aggregating in gigantic networks they create complex dynamic systems necessary to interact with the environment. The size of such networks varies greatly from species to species, but even small insects like Drosophila melanogaster have connectome comprised of about 140 000 neurons \cite{31}.
+Neuron cell is made of a cell body (or soma), dendrites and an axon. Dendrites are short branched extensions of neuron that receive the electrochemical signals from other neural cells and pass them to the cell body. Axons are long and thin, they conduct electrochemical impulses known as action potentials from the soma to other neurons. Neurons can have many dendrites but a maximum of one axon, which can connect to several other neural cells. Signal exchange between axon and dendrite is enabled by synapses — structures on their ends, capable of transferring signal either electrochemically releasing neurotransmitters (chemical synapse) or through electric current (electrical synapse), chemical synapse is the prevalent type. Synapses also divide in excitatory and inhibitory, meaning they may either excite or inhibit the postsynaptic neuron. Therefore synapses are not simple signal transmitters, moreover they play a role in memory formation.
+Signals received by the dendrites change the voltage gradient of cell membrane. If the change reaches a certain threshold, it generates electrochemical impulse called an action potential which travels along the axon to the synapses. After an action potential has occurred refractory period ensues, during which neuron can't send out pulses in reaction to stimuli.
+
+\section{Generations of ANNs}
+The first step to artificial neural networks was made in 1943 by a neurophysiologist Warren McCulloch and a mathematician Walter Pitts \cite{32}. They wrote a paper proposing a computational model for neural networks based on mathematics and algorithms called threshold logic. These first generation neural networks were capable of modeling basic OR/AND/NOT functions by summing binary inputs and outputting a 1 if the sum exceeds a threshold, and 0 otherwise. 
+The second generation of ANNs came when neuron model was extended by a non-linear continuous activation function. The function was applied to the sum of weighted inputs, and produced a continuous set of output values. Majority of ANNs applied today are of 2nd generation and are trained using gradient descent algorithms and backpropagation \cite{33}. They are employed for various tasks such as speech processing and image recognition.
+The third generation of neural networks introduced spiking neurons as well as plastic synapses. These neural networks model the biological neuron circuits more closely in comparison to first and second generation neurons. 
+
+
+\section{Classic Reinforcement Learning}\label{classicRL}
+In order for a neural network to do anything it must first go through a learning process. There are three general types of learning: supervised, unsupervised and reinforcement. The latter imitates natural learning process of living organisms. Animal brains have evolved to seek rewarding stimuli. Sensory receptors translate stimuli, such as light, sound, smell e.t.c. into action potentials which then are processed by the brain. They are evaluated depending on their potential effect on survival and procreation and result in appropriate reward signals. Similarly, in reinforcement learning the goal is to maximize the reward generated on interaction with environment. To do so, neural network has to learn how its actions affect rewards and which of them are optimal in different situations \cite{34}. 
+The learning process is an iteration of observing the environment, executing an action and receiving a reward. It can be described as a Markov Decision Process (MDP) — control process which at each time step is in some state \(s\), and the actor may choose any action \(a\) that is available in this state. At the next time step process randomly 
+switches to a new state \(s'\), and gives a reward \(R_a(s,s')\) to the actor.
+MDP is a 5-tuple \((S;A;P;R;\gamma)\), where \(S\) is a finite set of states, \(A\) is a finite set of actions, \(p_{s,s'}^a \in P\) is the probability that action \(a\) in state \(s\) at time \(t\) will lead to state \(s'\) at time \(t + 1\), \(r_{s,s'}^a \in R\) is the immediate reward received after transitioning from state \(s\) to state \(s\), due to action \(a\) and \(\gamma\) is the discount factor representing the relative value of current rewards to future rewards. The goal of MDP is to find an optimal "policy" \(pi\) for the actor — an optimal state-action mapping that maximizes actor's reward. In order to be able to maximize reward a value function is required that predicts future reward resulting from sequence of actions.
+
+\begin{equation}
+ v_{\pi}(s) = \mathbb{E}_{\pi}[r_{t+1} + \gamma r_{t+2} + \gamma^2 r_{t+3} + ... | s]
+\end{equation}\label{eq:valueFunc}
+
+Due to nature of reinforcement learning problems, rewards are usually spatially and temporally distributed, so a look-ahead is required in order to be able to effectively maximize the reward. This requires the actor states to incorporate information on all possible future rewards, which is impossible for many problems. In order to restrict the amount of future rewards that are calculated, the discount factor \(\gamma\) is used. Reformulating of Eq. \ref{eq:valueFunc} in recursive form produces \(Bellman\) \(Expectation\) \(Equation\)
+
+\begin{equation}
+	v_{\pi}(s) = \mathbb{E}_{\pi}[r_{t+1} + \gamma v_{\pi}(s') | s]
+\end{equation}\label{eq:bellman}
+
+
+For which, the optimality equation is formulated as follows:
+
+
+\begin{equation}
+	v_{\pi^*}(s) = max_{a \in A}(r_{s, s'}^a + \gamma \Sigma_{s' \in S} p_{s,s'}^a, v_{\pi^*}(s'))
+\end{equation}\label{eq:bellmanOpt}
+
+Bellman equations show the duality of reinforcement learning problems, where actor has to evaluate future action based on policy \(\pi\) and has to optimize its future actions, hence find the optimal policy \(\pi^*\). This two problems are compounded by the fact, that environments can be incomplete and so the state transition probabilities are not known. The optimality equation \eqref{eq:bellmanOpt} cannot be solved in closed form, but can be approximated with iterative methods such as \(Value\) \(Iteration\) or \(Policy\) \(Iteration\). The aforementioned methods need to know the transition probabilities in advance In order to predict environment's future development, models are constructed. Other methods, like \(SARSA\) and \(Deep\) \(Q-Learning\) do not require exact model and can learn about the environment in the process. As seen in this chapter, classical reinforcement learning operates in discrete realm of state-action pairs and time.
+
+\section{Spiking Neural Networks}
+
+The spiking neural network, also called the 3rd generation brings a wider biological plausibility with itself. It expands not only neuron models but also the synapses connecting them, adding dynamics and properties closely modeled on real biological processes. Consequently, the concept of time is adapted as part of the model. Neurons no longer fire continuously but rather discharge (spike) when their membrane potential exceeds a certain boundary. In theory, spiking neural networks have been shown to have greater computational potential then the current ANNs but it comes with certain drawbacks: Gradient Descent does not directly work on non-differentiable spike trains, although some adaptations were propsed by \cite{18}, \cite{19}.
+
+\subsection{Hodgkin–Huxley model}
+
+A mathematical neuron model was propsed by Hodgkin and Huxley in \cite{35} described the propagation of neuron’s action potentials with a set of four nonlinear differential equations that took many biological properties into account simultaneously making this model extremely computationally intensive. The equations describe the response of a neuron to external stimuli. The membrane potential is described by:
+
+\begin{equation}\label{eq:hodg}
+C_{m}\frac{dV}{dt}=I_{ext}-\overline{g}_{Na}m^{3}h(V-E_{Na})-\overline{g}_{K}n^{4}(V-E_{K})-\overline{g}_{L}(V-E_{L}) 
+\end{equation}
+
+where \(I_{ext}\) is the simulation current per unit area; \(V\) is the membrane potential; \(Cm\) is the capacitance per area of the membrane; \(E_{Na}\), \(E_{k}\) and \(E_{L}\) is the maximum conductance of voltage-gated channel sodium and potassium channel and leak channel; \(E_{Na}\) and \(E_{k}\) represent the equilibrium potential for sodium and potassium ions, and \(E_{L}\) is the reverse potential for the leak conductance; \(m\), \(n\), \(h\) are the gating variables which regulate the conductance's of ionic channels \cite{36}. Gate transition equation is:
+
+\begin{equation}\label{eq:gateTransEq}
+	\frac{dp_{0}}{dt}=\alpha.(1-p_{0})-\beta.p_{0} 
+\end{equation}
+
+Due to its complexity this model is extremely slow when computing the state of a population of neurons. This fact led to proposals of many other neuron models that focus on parts of the Hodkin-Huxley model, most common of which is the Leaky Integrate-And-Fire neuron model.
+
+\subsection{Leaky Integrate-and-Fire Neuron Model}
+Integrate and Fire and it’s variant, Leaky Integrate and Fire neuron is widest used spiking neuron model proposed in \cite{37}. The state of neuron is determined by its voltage \(V\), which models real neuron’s membrane potential with \(V=0\)  being the idle state. Each time a neuron receives an impulse, its membrane potential increases:
+
+\begin{equation}\label{eq:lifMembrane}	
+	V(t_i)=V(t_i)+h
+\end{equation}
+
+where h is a constant value. The integrate and fire neuron would constantly hold its charge until it would reach given threshold value \(V_0\), when it will emit a single spike (discharge) and return to the resting state. LIF neuron does not hold its charge without stimuli, it decays according to exponential law:
+
+\begin{equation}\label{lifDecay}
+	V(t_i+\Delta t)=V(t+i) e^{-\Delta t/\tau}
+\end{equation}
+
+where \(\tau\) is refraction constant. This particularity allows the neuron to “forget” and so adjust to different stimuli distributed in time.
+
+
+\subsection{Hebbian Learning}
+Hebbian learning is based on the theory describing adaptation of synaptic efficacies in the brain. It postulates, that synapses between neurons with highly correlated outputs are strengthened \cite{12} which in essence means that if firing of pre-synaptic neuron leads with high probability to firing of post-synaptic neuron, the connection between them is improved. However, the pre-synaptic neuron influence post-synaptic neuron firing unless it fires before the post-synaptic neuron. That means, that if pre- and post-synaptic neurons fire at the same time, the synapse is not strengthened. Moreover, not only the spike timing but also the spike order is instrumental as experimentally shown in \cite{13}. If pre-synaptic neuron fires before the post-synaptic neuron, the connection is facilitated, while in reverse case the connection is depressed. This is the concept underlying the Spike-Time-Dependent-Plasticity. Learning strategies using STDP are considered to fall under Unsupervised Learning, since no critic, error function or goal is available. Consequently STDP was applied in input categorization and pattern recognition tasks \cite{14}. STDP rule is defined as weight update function dependant on the time difference between pre- and post-synaptic spike
+
+\begin{equation*} 
+	\begin{split} &
+	\Delta t = t_{post} - t_{pre}\\&
+	\Delta w_{+}=A_{+}\cdot e^{-\frac{\Delta t}{\tau_{+}}}\quad if\quad \Delta t > 0\\& 		\Delta w_{-}=A_{-}\cdot e^{-\frac{\Delta t}{\tau_{-}}}\quad if\quad \Delta t < 0, 			\end{split}	
+	\label{eq:STDP}
+\end{equation*}
+
+where \(A_{+}\),\(A_{-}\) - positive constants scaling the weight changes for facilitation and depression, \(\tau_{+}\), \(\tau_{-}\) - positive constants defining the width temporal window, during which STDP is active.
+
+\subsection{Reward-Modulated STDP}
+Florian in \cite{15} has shown, that modulation of STDP learning rule with a global reward signal leads to reinforcement learning. He developed a simple reward-modulated STDP rule and applied them to solve XOR-Problem with a network of integrate-and-fire neurons. Based on this, Potjans et al. \cite{10} developed a synapse model that modified the STDP rule (Eq. \ref{eq:STDP}). The new rule does not update the weights straight away but collects them into an eligibility trace:
+
+\begin{equation*}
+	\begin{split} &
+	\Delta w = c(n-b)\\&
+	\Delta c = -\frac{c}{\tau_c} + STDP(\Delta t)\delta(t - s_{pre/post})C_1\\&
+	\Delta n = -\frac{n}{\tau_n} +  \frac{\delta (t - s_n)}{\tau_n}C_2
+	\end{split}	
+	\label{RSTDP}
+\end{equation*}
+
+where \(c\) is the eligibility trace, \(n\) is the neuromodulator concentration, \(b\) is neuromodulator baseline, \(s_{pre/post}\) - timing of pre- or post-synaptic spike, \(s_n\) - timing of neuromodulatory spike, \(C_1\), \(C_2\) - constant coefficients, \(\delta\) - Dirac delta function and \(\tau_c\), \(\tau_n\) are eligibility and neuromodulator concentration time constants. \(STDP(\Delta t)\) is defined in Eq. \ref{eq:STDP}. In this model, the neuromodulator concentration is always present, which is reflected by the neuromodulator baseline constant \(b\). Observation of base firing rates in neurons led to conclusion that global reward can be expressed as neuromodulator concentration deviation from its mean value \(\bar{b}\). 
+
+\subsection{Additive and Multiplicative Reward-Modulated STDP}\label{armmrm}
+Reward-modulated STDP rule introduced in previous section was used by Shim and Peng \cite{16} to teach a car robot to drive towards goal avoiding collisions. In their work, additive and multiplicative RSTDP learning schemes were used. Additive RSTDP learning rule is defined as
+\begin{equation*} 
+	\frac{dw_{ij}(t)}{dt}=\gamma r(t)z_{ij}(t), 
+\end{equation*}\label{eq:additiveSTDP}
+
+where \(\gamma\) is reward factor, \(r(t)\) is reward signal and \(z_{ij}(t)\) is the eligibility trace. This learning rule is exactly the rule introduced by Florian in \cite{15}. Shim and Peng suggest a modification to this rule in form of multiplicative RSTDP
+
+\begin{equation*} 
+	\frac{dw_{ij}(t)}{dt}=\gamma w_{ij}(t)r(t)z_{ij}(t).
+\end{equation*}\label{eq:multiplicativeSTDP}
+
+This rule incorporates current weight \(w_{ij}(t)\) in weight change calculation. This change has been shown to produce stable uni-modal weight distributions. In this work both of this learning schemes are implemented and tested.
+
+\subsection{Classical Reinforcement Learning and SNN}\label{snnRL}
+
+Classical reinforcement learning as described in Section \ref{classicRL} relies on existence of discrete states, actions and time. Spiking neural networks however operate on asynchronous spike events distributed in continuous time. This makes gradient descent and temporal difference learning methods unusable without in SNNs without modifications. Such modifications lead to complex, computationally intensive systems. It constitutes an active research topic. In works by Potjans et al. \cite{18} and Fremaux et al. \cite{19} an actor-critic approach was used and Temporal Difference was adapted. However, the tasks solved by this networks are not easily transferable to the context of this work. As such, in this work the focus is on the aforementioned additive and multiplicative RSTDP.

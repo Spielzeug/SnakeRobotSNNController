@@ -1,0 +1,90 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {american}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Acknowledgments}{iii}{Doc-Start}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Abstract}{iii}{chapter*.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Theoretical Background}{2}{chapter.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Biological Background}{2}{section.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Generations of ANNs}{3}{section.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Classic Reinforcement Learning}{3}{section.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.4}Spiking Neural Networks}{5}{section.2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.1}Hodgkin\IeC {\textendash }Huxley model}{5}{subsection.2.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.2}Leaky Integrate-and-Fire Neuron Model}{6}{subsection.2.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.3}Hebbian Learning}{6}{subsection.2.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.4}Reward-Modulated STDP}{7}{subsection.2.4.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.5}Additive and Multiplicative Reward-Modulated STDP}{7}{subsection.2.4.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.6}Classical Reinforcement Learning and SNN}{8}{subsection.2.4.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Methodology}{9}{chapter.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Simulation Environment}{9}{section.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.1}V-REP}{9}{subsection.3.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.2}Robot Operating System}{9}{subsection.3.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.3}Dynamic Vision Sensor}{10}{subsection.3.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.4}HiBot ACM-R5 Snake Robot}{12}{subsection.3.1.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Simulation Scenarios}{13}{section.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.1}Modified ACM-R5 Model}{13}{subsection.3.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.2}Training Scenario}{14}{subsection.3.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.3}Testing Scenario}{14}{subsection.3.2.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Neural Network}{16}{section.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.1}NEST Simulator}{16}{subsection.3.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.2}Transforming DVS output into SNN input}{16}{subsection.3.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.3}Spiking Neural Network Architecture}{17}{subsection.3.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4}Controller}{18}{section.3.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.1}Reward Calculation}{18}{subsection.3.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.2}Snake Turning Model}{18}{subsection.3.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.3}Project Architecture}{19}{subsection.3.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.4}V-REP to Controller communication}{19}{subsection.3.4.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Discussion}{22}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Training Performance}{22}{section.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.1}ARM-STDP with center-approximating reward function}{22}{subsection.4.1.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.2}ARM-STDP with triangle area reward function}{23}{subsection.4.1.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.3}MRM-STDP with center-approximating reward function}{23}{subsection.4.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Testing Performance}{24}{section.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Performance Summary}{24}{subsection.4.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Conclusion and Outlook}{34}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline List of Figures}{35}{chapter*.29}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline List of Tables}{37}{chapter*.30}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Bibliography}{38}{chapter*.31}

@@ -1,0 +1,56 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {american}{}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.1}{\ignorespaces (a) - DVS sensor, (b) - Eye shot with DVS sensor, ~7500 events in 300 ms, (c) - Faces, ~8000 events in 26 ms, (d) - Driving scene, ~4000 events in 29 ms as presented by Lichtsteiner et al in \cite {5}\relax }}{10}{figure.caption.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.2}{\ignorespaces (a) - real DVS data, (b) - simulated DVS data \cite {7}\relax }}{11}{figure.caption.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.3}{\ignorespaces Simulated DVS frame\relax }}{12}{figure.caption.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.4}{\ignorespaces ACM-R5 model in V-REP with a DVS\relax }}{13}{figure.caption.9}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.5}{\ignorespaces A DVS sensor volume with proximity sensors cutting it into 4 sectors\relax }}{13}{figure.caption.10}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.6}{\ignorespaces V-REP Scenario 1 with stage starting points labelled \relax }}{15}{figure.caption.13}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.7}{\ignorespaces V-REP Scenario 2 \relax }}{15}{figure.caption.14}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.8}{\ignorespaces Scaling of original DVS frame to 8\(\times \)8 frame (a) - original simulated frame, (b) - fused 8\(\times \)8 frame \relax }}{17}{figure.caption.16}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.9}{\ignorespaces Reward function (a) - center approximation based, (b) - area based \relax }}{19}{figure.caption.17}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.10}{\ignorespaces Controller architecture used in this work\relax }}{20}{figure.caption.18}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 3.11}{\ignorespaces Testing flow\relax }}{21}{figure.caption.19}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.1}{\ignorespaces Weights development of ARM-STDP with center approximating reward function over simulation time\relax }}{25}{figure.caption.20}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.2}{\ignorespaces Final weight distribution of ARM-STDP with center approximating reward function over simulation time\relax }}{26}{figure.caption.21}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.3}{\ignorespaces Weights development of ARM-STDP with area-based approximating reward function over simulation time\relax }}{27}{figure.caption.22}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.4}{\ignorespaces Final weight distribution of ARM-STDP with area-based approximating reward function over simulation time\relax }}{28}{figure.caption.23}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.5}{\ignorespaces Weights development of MRM-STDP with center-approximating approximating reward function over simulation time\relax }}{29}{figure.caption.24}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.6}{\ignorespaces Final weight distribution of MRM-STDP with center-approximating approximating reward function over simulation time\relax }}{30}{figure.caption.25}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.7}{\ignorespaces Weights development of MRM-STDP with area-based approximating reward function over simulation time\relax }}{31}{figure.caption.26}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.8}{\ignorespaces Final weight distribution of MRM-STDP with area-based approximating reward function over simulation time\relax }}{32}{figure.caption.27}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {\relax 4.9}{\ignorespaces Reward signals: (a) - ARM-STDP center-approximating, (b) - ARM-STDP area-based, (c) - MRM-STDP, center-approximating, (d) - MRM-STDP area-based\relax }}{33}{figure.caption.28}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }

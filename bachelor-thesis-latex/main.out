@@ -1,0 +1,45 @@
+\BOOKMARK [0][-]{Doc-Start}{Acknowledgments}{}% 1
+\BOOKMARK [0][-]{chapter*.1}{Abstract}{}% 2
+\BOOKMARK [0][-]{toc.0}{Contents}{}% 3
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 4
+\BOOKMARK [0][-]{chapter.2}{Theoretical Background}{}% 5
+\BOOKMARK [1][-]{section.2.1}{Biological Background}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.2}{Generations of ANNs}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.3}{Classic Reinforcement Learning}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.4}{Spiking Neural Networks}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.4.1}{Hodgkin\205Huxley model}{section.2.4}% 10
+\BOOKMARK [2][-]{subsection.2.4.2}{Leaky Integrate-and-Fire Neuron Model}{section.2.4}% 11
+\BOOKMARK [2][-]{subsection.2.4.3}{Hebbian Learning}{section.2.4}% 12
+\BOOKMARK [2][-]{subsection.2.4.4}{Reward-Modulated STDP}{section.2.4}% 13
+\BOOKMARK [2][-]{subsection.2.4.5}{Additive and Multiplicative Reward-Modulated STDP}{section.2.4}% 14
+\BOOKMARK [2][-]{subsection.2.4.6}{Classical Reinforcement Learning and SNN}{section.2.4}% 15
+\BOOKMARK [0][-]{chapter.3}{Methodology}{}% 16
+\BOOKMARK [1][-]{section.3.1}{Simulation Environment}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.1.1}{V-REP}{section.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.2}{Robot Operating System}{section.3.1}% 19
+\BOOKMARK [2][-]{subsection.3.1.3}{Dynamic Vision Sensor}{section.3.1}% 20
+\BOOKMARK [2][-]{subsection.3.1.4}{HiBot ACM-R5 Snake Robot}{section.3.1}% 21
+\BOOKMARK [1][-]{section.3.2}{Simulation Scenarios}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.2.1}{Modified ACM-R5 Model}{section.3.2}% 23
+\BOOKMARK [2][-]{subsection.3.2.2}{Training Scenario}{section.3.2}% 24
+\BOOKMARK [2][-]{subsection.3.2.3}{Testing Scenario}{section.3.2}% 25
+\BOOKMARK [1][-]{section.3.3}{Neural Network}{chapter.3}% 26
+\BOOKMARK [2][-]{subsection.3.3.1}{NEST Simulator}{section.3.3}% 27
+\BOOKMARK [2][-]{subsection.3.3.2}{Transforming DVS output into SNN input}{section.3.3}% 28
+\BOOKMARK [2][-]{subsection.3.3.3}{Spiking Neural Network Architecture}{section.3.3}% 29
+\BOOKMARK [1][-]{section.3.4}{Controller}{chapter.3}% 30
+\BOOKMARK [2][-]{subsection.3.4.1}{Reward Calculation}{section.3.4}% 31
+\BOOKMARK [2][-]{subsection.3.4.2}{Snake Turning Model}{section.3.4}% 32
+\BOOKMARK [2][-]{subsection.3.4.3}{Project Architecture}{section.3.4}% 33
+\BOOKMARK [2][-]{subsection.3.4.4}{V-REP to Controller communication}{section.3.4}% 34
+\BOOKMARK [0][-]{chapter.4}{Discussion}{}% 35
+\BOOKMARK [1][-]{section.4.1}{Training Performance}{chapter.4}% 36
+\BOOKMARK [2][-]{subsection.4.1.1}{ARM-STDP with center-approximating reward function}{section.4.1}% 37
+\BOOKMARK [2][-]{subsection.4.1.2}{ARM-STDP with triangle area reward function}{section.4.1}% 38
+\BOOKMARK [2][-]{subsection.4.1.3}{MRM-STDP with center-approximating reward function}{section.4.1}% 39
+\BOOKMARK [1][-]{section.4.2}{Testing Performance}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.2.1}{Performance Summary}{section.4.2}% 41
+\BOOKMARK [0][-]{chapter.5}{Conclusion and Outlook}{}% 42
+\BOOKMARK [0][-]{chapter*.29}{List of Figures}{}% 43
+\BOOKMARK [0][-]{chapter*.30}{List of Tables}{}% 44
+\BOOKMARK [0][-]{chapter*.31}{Bibliography}{}% 45
