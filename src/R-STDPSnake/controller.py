@@ -77,6 +77,8 @@ for i in range(50000):
         failed += 1
     #vrep.simxStopSimulation(clientID, vrep.simx_opmode_blocking)
 
+print ("Completed to failed ratio: ", completed/failed)
+
 h5f = h5py.File(path + '/rstdp_performance_data.h5', 'w')
 h5f.create_dataset('steps_i', data=steps)
 h5f.create_dataset('distance_i', data=distance)

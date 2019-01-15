@@ -209,8 +209,8 @@ class VrepEnvironment():
         self.rate.sleep()
 
         rc = 0.0
-#         r = self.getAreaBasedReward()
-        r, d_l, d_r = self.getAreaBasedReward()
+        """Change this to select a different reward function"""
+        r, d_l, d_r = self.getApproxCenterDistanceReward()
         s = self.getState()
         
         if self.simStopped:
