@@ -267,8 +267,8 @@ class VrepEnvironment():
 #         r = (shortestWhisker + 3) / ((shortestWhisker ** 3) + 1) - 0.45  
         
 
-        distanceLeft = self.left_proxy_data[1] * math.cos(0.698132)
-        distanceRight = self.right_proxy_data[1] * math.cos(0.698132)
+        distanceLeft = self.left_proxy_data[1] * math.cos(0.872665)
+        distanceRight = self.right_proxy_data[1] * math.cos(0.872665)
         
         r = (((distanceRight + distanceLeft) / 2) - distanceLeft) ** 3
         

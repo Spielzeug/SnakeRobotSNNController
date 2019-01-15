@@ -1,5 +1,5 @@
 '''
-@author: clamesc
+ @author: clamesc
 '''
 import numpy as np
 import math

@@ -2,8 +2,8 @@ import numpy as np
 
 dvs_resolution = [128,128]
 crop_top = 0
-crop_bottom = 16
-resolution = [8,4]
+crop_bottom = 0
+resolution = [8,8]
 time_resolution = 0.1
 max_spikes = 15.0
 max_poisson_freq = 300.0

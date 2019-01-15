@@ -29,7 +29,7 @@ gs = gridspec.GridSpec(2, 1, height_ratios=[2, 2])
 ax3 = plt.subplot(gs[0])
 ax3.set_ylabel('Weight', position=(0.,0.))
 ax3.set_xlim((0,xlim))
-ax3.set_ylim((180,220))
+ax3.set_ylim((175,225))
 ax3.set_xticklabels([])
 ax3.text(1000, 2100, 'Left Motor', color='0.4')
 ax3.tick_params(axis='both', which='both', direction='in', bottom=True, top=True, left=True, right=True)
@@ -39,7 +39,7 @@ for i in range(w_l.shape[1]):
 
 ax4 = plt.subplot(gs[1], sharey=ax3)
 ax4.set_xlim((0,xlim))
-ax4.set_ylim((180,220))
+ax4.set_ylim((175,225))
 ax4.text(1000, 2100, 'Right Motor', color='0.4')
 ax4.tick_params(axis='both', which='both', direction='in', bottom=True, top=True, left=True, right=True)
 for i in range(w_r.shape[1]):

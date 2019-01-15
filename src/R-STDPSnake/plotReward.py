@@ -10,18 +10,20 @@ from matplotlib import gridspec
 
 # Load the training data
 path = "./data"
+
+"""Uncomment to switch between training and performance"""
+#h5f = h5py.File(path + '/rstdp_performance_data.h5', 'r')
 h5f = h5py.File(path + '/rstdp_training_data.h5', 'r')
 
-w_l = np.array(h5f['w_l'], dtype=float)
-w_r = np.array(h5f['w_r'], dtype=float)
-w_i = np.array(h5f['w_i'], dtype=float)
+"""Uncomment to print testing distance"""
+#distance = np.array(h5f['distance_i'], dtype = float)
+#print(max(distance))
+
 steps = np.array(h5f['steps_i'], dtype = float)
 rewards = np.array(h5f['reward_i'], dtype = float)
 
-ylabels = ['Weights Left', 'Weights Right']
-
-data = [w_l, w_r]
-
+# data = [w_l, w_r]
+print(max(steps))
 fig = plt.figure(figsize=(20, 24))
 
 ax1 = plt.subplot(313)

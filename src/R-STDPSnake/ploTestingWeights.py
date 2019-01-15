@@ -25,14 +25,14 @@ plt.title('Left Weights')
 plt.imshow(weights_l, alpha=0.5)
 plt.axis('off')
 for (j,i),label in np.ndenumerate(weights_l):
-    ax1.text(i,j,round(label,2),ha='center',va='center')
+    ax1.text(i,j,int(label),ha='center',va='center')
 
 ax2 = plt.subplot(212)
 plt.title('Right Weights')
 plt.imshow(weights_r, alpha=0.5)
 plt.axis('off')
 for (j,i),label in np.ndenumerate(weights_r):
-    ax2.text(i,j,round(label, 2),ha='center',va='center')
+    ax2.text(i,j,int(label),ha='center',va='center')
 
 fig.tight_layout()
 plt.show()

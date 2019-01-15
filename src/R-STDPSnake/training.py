@@ -7,8 +7,8 @@ from parameters import *
 import h5py
 
 """Change between arm and mrm to train with additive and multiplicative scheme respectively"""
+snn = mrm.SpikingNeuralNetwork()
 
-mrmSnn = arm.SpikingNeuralNetwork()
 env = VrepEnvironment()
 state = np.zeros((20*2,resolution[0],resolution[1]),dtype=int)
 weights_r = []
@@ -25,7 +25,7 @@ path = "./data"
 m = 0
 s,r,rc, areaLeft, areaRight = env.reset()
 for i in range(15000):
-    n_l, n_r, w_l, w_r = mrmSnn.simulate(s,r, rc, areaLeft, areaRight, False)
+    n_l, n_r, w_l, w_r = snn.simulate(s,r, rc, areaLeft, areaRight, False)
     s,r,rc,t,n, simStopped, distance, areaLeft, areaRight = env.step(n_l, n_r)
     
     if simStopped:
@@ -41,6 +41,7 @@ for i in range(15000):
         steps_i.append(n)
     if t:
         episode_i.append(i)
+        print("collision in episode: ", episode_i)
 
 h5f = h5py.File(path+'/rstdp_training_data.h5', 'w')
 h5f.create_dataset('w_l', data=weights_l)
